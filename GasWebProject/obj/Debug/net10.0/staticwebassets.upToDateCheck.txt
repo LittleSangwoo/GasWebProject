@@ -1,0 +1,2 @@
+wwwroot\index.html
+D:\RadarItProjects\GasWebProject\GasWebProject\wwwroot\index.html

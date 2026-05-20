@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор газовой смеси</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            margin: 0;
+            padding: 40px 20px;
+            color: #334155;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .content {
+            padding: 35px;
+        }
+
+        .form-panel {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+            .form-group label {
+                font-weight: 600;
+                min-width: 50px;
+                color: #475569;
+            }
+
+        .step-label {
+            font-weight: 700;
+            color: #2563eb;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        select, input {
+            padding: 10px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+            font-size: 0.95em;
+            color: #1e293b;
+            transition: all 0.2s ease;
+        }
+
+            select:focus, input:focus {
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            }
+
+        .impurity-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            align-items: center;
+        }
+
+        /* Красивые кнопки */
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.1s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
+            }
+
+            .btn-primary:active {
+                transform: translateY(1px);
+            }
+
+        .btn-outline {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #e0e7ff;
+            padding: 9px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+            .btn-outline:hover {
+                background: #eff6ff;
+                border-color: #bfdbfe;
+            }
+
+        .btn-danger {
+            background: #fef2f2;
+            color: #ef4444;
+            border: 1px solid #fecaca;
+            padding: 9px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+            .btn-danger:hover {
+                background: #fee2e2;
+                border-color: #fca5a5;
+            }
+
+        .action-row {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Стилизация таблицы */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Подсветка баланса */
+        .row-remainder td {
+            background-color: #ecfdf5;
+            color: #065f46;
+            font-weight: 600;
+        }
+
+        /* Блок БД */
+        .add-db-panel {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            margin-top: 40px;
+            padding: 25px;
+        }
+
+            .add-db-panel h4 {
+                margin-top: 0;
+                color: #b45309;
+                font-size: 1.1em;
+            }
+
+        .add-db-inputs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+            .add-db-inputs input {
+                width: 140px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span style="font-size: 1.2em;">🧪</span> Калькулятор газовой смеси
+        </div>
+        <div class="content">
+
+            <div class="form-panel">
+                <div style="display: flex; gap: 40px; margin-bottom: 30px;">
+                    <div class="form-group" style="margin: 0;">
+                        <label>Из:</label>
+                        <select id="sourceUnit" style="width: 220px;">
+                            <option value="1">Объемная доля</option>
+                            <option value="0">Молярная доля</option>
+                            <option value="2">Массовая доля</option>
+                            <option value="3">Массовая концентрация</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label>В:</label>
+                        <select id="targetUnit" style="width: 220px;">
+                            <option value="1">Объемная доля</option>
+                            <option value="0">Молярная доля</option>
+                            <option value="2">Массовая доля</option>
+                            <option selected value="3">Массовая концентрация</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label class="step-label">1. Балансовый газ (Остаток):</label>
+                <div class="form-group" style="margin-bottom: 30px;">
+                    <select id="remainderSelect" style="width: 285px;"></select>
+                </div>
+
+                <label class="step-label" style="color: #64748b;">2. Компоненты примесей:</label>
+                <div class="impurity-row" style="font-weight: 600; color: #475569; margin-bottom: 8px;">
+                    <div style="width: 220px; padding-left: 5px;">Компонент</div>
+                    <div style="width: 150px;">Значение</div>
+                </div>
+
+                <div id="impuritiesContainer"></div>
+
+                <div class="action-row">
+                    <button class="btn-outline" onclick="addImpurityRow()">+ Добавить компонент</button>
+                    <button class="btn-primary" onclick="calculate()">Рассчитать смесь</button>
+                </div>
+            </div>
+
+            <table id="resultsTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Компонент</th>
+                        <th id="resultColumnHeader">Результат</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+
+            <div class="add-db-panel">
+                <h4>Добавить новый эталон в базу данных:</h4>
+                <div class="add-db-inputs">
+                    <input type="text" id="newName" placeholder="Имя (напр. He)">
+                    <input type="number" id="newM" placeholder="M (Мол. масса)">
+                    <input type="number" id="newZ" placeholder="Z (Коэфф. сжат.)">
+                    <input type="number" id="newNominal" placeholder="Номинал">
+                </div>
+                <button class="btn-outline" style="background: transparent; border-color: #f59e0b; color: #d97706;" onclick="addToDb()">Сохранить в БД</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let allGases = [];
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            await loadGases();
+            addImpurityRow();
+        });
+
+        async function loadGases() {
+            try {
+                const res = await fetch('/api/gascalculator/components');
+                allGases = await res.json();
+
+                const remSelect = document.getElementById('remainderSelect');
+                remSelect.innerHTML = '';
+                allGases.forEach(g => {
+                    const opt = new Option(g.name, g.name);
+                    if (g.name === 'N2') opt.selected = true;
+                    remSelect.add(opt);
+                });
+            } catch (e) {
+                alert("Ошибка загрузки БД: " + e.message);
+            }
+        }
+
+        function updateNominalValue(selectElement) {
+            const selectedName = selectElement.value;
+            const gasInfo = allGases.find(g => g.name === selectedName);
+            const inputField = selectElement.parentElement.querySelector('.gas-value');
+
+            inputField.value = (gasInfo && gasInfo.nominal !== null) ? gasInfo.nominal : 0;
+        }
+
+        function addImpurityRow() {
+            const container = document.getElementById('impuritiesContainer');
+            const row = document.createElement('div');
+            row.className = 'impurity-row';
+
+            let selectHtml = `<select class="gas-select" style="width: 220px;" onchange="updateNominalValue(this)">`;
+            allGases.forEach(g => selectHtml += `<option value="${g.name}">${g.name}</option>`);
+            selectHtml += `</select>`;
+
+            row.innerHTML = `
+                ${selectHtml}
+                <input type="number" class="gas-value" step="0.000001" style="width: 140px;">
+                <button class="btn-danger" onclick="this.parentElement.remove()">Удалить</button>
+            `;
+            container.appendChild(row);
+
+            updateNominalValue(row.querySelector('.gas-select'));
+        }
+
+        async function addToDb() {
+            const dto = {
+                name: document.getElementById('newName').value,
+                m: parseFloat(document.getElementById('newM').value.replace(',', '.')),
+                z: parseFloat(document.getElementById('newZ').value.replace(',', '.')),
+                nominal: parseFloat(document.getElementById('newNominal').value.replace(',', '.')) || null
+            };
+
+            if (!dto.name || !dto.m || !dto.z) {
+                alert("Заполните Имя, M и Z!"); return;
+            }
+
+            try {
+                const response = await fetch('/api/gascalculator/components/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dto)
+                });
+
+                if (!response.ok) {
+                    const err = await response.json(); throw new Error(err.error || "Ошибка сервера");
+                }
+
+                alert("Компонент успешно добавлен в справочник!");
+                document.getElementById('newName').value = '';
+                document.getElementById('newM').value = '';
+                document.getElementById('newZ').value = '';
+                document.getElementById('newNominal').value = '';
+
+                await loadGases();
+                document.getElementById('impuritiesContainer').innerHTML = '';
+                addImpurityRow();
+
+            } catch (error) { alert(error.message); }
+        }
+
+        async function calculate() {
+            const tbody = document.getElementById('resultsBody');
+            const table = document.getElementById('resultsTable');
+            table.style.display = 'table';
+            tbody.innerHTML = '<tr><td colspan="2" style="text-align:center; padding: 30px; color: #64748b;">⏳ Выполняется расчет...</td></tr>';
+
+            const sourceUnit = parseInt(document.getElementById('sourceUnit').value);
+            const targetUnit = parseInt(document.getElementById('targetUnit').value);
+            const remainderName = document.getElementById('remainderSelect').value;
+
+            // ВАЖНОЕ ИСПРАВЛЕНИЕ: Ищем строки ТОЛЬКО внутри контейнера примесей
+            const impurityRows = document.querySelectorAll('#impuritiesContainer .impurity-row');
+
+            const componentsData = [];
+            componentsData.push({ name: remainderName, value: 0, isRemainder: true });
+
+            const selectedNames = new Set([remainderName]);
+            let hasDuplicates = false;
+
+            impurityRows.forEach(row => {
+                const name = row.querySelector('.gas-select').value;
+                const value = parseFloat(row.querySelector('.gas-value').value) || 0;
+
+                if (selectedNames.has(name)) hasDuplicates = true;
+                else {
+                    selectedNames.add(name);
+                    componentsData.push({ name: name, value: value, isRemainder: false });
+                }
+            });
+
+            if (hasDuplicates) {
+                tbody.innerHTML = '<tr><td colspan="2" style="color:#ef4444; text-align:center; padding: 20px;"><b>Ошибка:</b> В списке есть дубликаты газов. Удалите лишние.</td></tr>';
+                return;
+            }
+
+            const requestData = { sourceUnit, targetUnit, components: componentsData };
+
+            try {
+                const response = await fetch('/api/gascalculator/convert', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestData)
+                });
+
+                if (!response.ok) {
+                    const errText = await response.text();
+                    throw new Error(`Сбой на сервере ${response.status}: ${errText}`);
+                }
+
+                const data = await response.json();
+
+                const targetSelect = document.getElementById('targetUnit');
+                document.getElementById('resultColumnHeader').innerText = targetSelect.options[targetSelect.selectedIndex].text;
+
+                tbody.innerHTML = '';
+
+                data.forEach(item => {
+                    const tr = document.createElement('tr');
+
+                    const isRem = item.isRemainder !== undefined ? item.isRemainder : item.IsRemainder;
+                    if (isRem) tr.className = 'row-remainder';
+
+                    const name = item.name || item.Name;
+                    const displayName = isRem ? `${name} (Баланс)` : name;
+
+                    let rawValue = item.value;
+                    if (rawValue === undefined) rawValue = item.Value;
+
+                    if (rawValue === undefined) throw new Error("Бэкенд вернул пустое значение!");
+
+                    const val = rawValue === Math.round(rawValue) ? rawValue : rawValue.toFixed(6).replace('.', ',');
+
+                    tr.innerHTML = `<td>${displayName}</td><td style="font-family: monospace; font-size: 1.1em;">${val}</td>`;
+                    tbody.appendChild(tr);
+                });
+
+            } catch (error) {
+                console.error(error);
+                tbody.innerHTML = `<tr><td colspan="2" style="color:#ef4444; padding: 20px;"><b>Системная ошибка:</b> ${error.message}</td></tr>`;
+            }
+        }
+    </script>
+</body>
+</html>
