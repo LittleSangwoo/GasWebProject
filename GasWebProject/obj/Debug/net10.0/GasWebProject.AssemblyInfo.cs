@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GasWebProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b903b5a74d33ea725419987d46cc2aee1d841392")]
 [assembly: System.Reflection.AssemblyProductAttribute("GasWebProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GasWebProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

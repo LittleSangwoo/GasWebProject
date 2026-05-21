@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|solutionrelative:gaswebproject\\services\\gascalculatorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|d:\\radaritprojects\\gaswebproject\\gaswebproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|solutionrelative:gaswebproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|d:\\radaritprojects\\gaswebproject\\gaswebproject\\data\\dtos\\conversionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|solutionrelative:gaswebproject\\data\\dtos\\conversionmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|d:\\radaritprojects\\gaswebproject\\gaswebproject\\controllers\\gascalculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|solutionrelative:gaswebproject\\controllers\\gascalculatorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|d:\\radaritprojects\\gaswebproject\\gaswebproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|solutionrelative:gaswebproject\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0EECF3C4-482A-5E97-652B-92E2A42B26CF}|GasWebProject\\GasWebProject.csproj|d:\\radaritprojects\\gaswebproject\\gaswebproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,7 +50,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ConversionModels.cs",
               "DocumentMoniker": "D:\\RadarItProjects\\GasWebProject\\GasWebProject\\Data\\DTOs\\ConversionModels.cs",
               "RelativeDocumentMoniker": "GasWebProject\\Data\\DTOs\\ConversionModels.cs",
@@ -58,8 +58,7 @@
               "RelativeToolTip": "GasWebProject\\Data\\DTOs\\ConversionModels.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T14:44:49.2Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T14:44:49.2Z"
             },
             {
               "$type": "Document",
@@ -69,7 +68,7 @@
               "RelativeDocumentMoniker": "GasWebProject\\wwwroot\\index.html",
               "ToolTip": "D:\\RadarItProjects\\GasWebProject\\GasWebProject\\wwwroot\\index.html*",
               "RelativeToolTip": "GasWebProject\\wwwroot\\index.html*",
-              "ViewState": "AgIAAFUBAAAAAAAAAAAAAGkBAAATAAAAAAAAAA==",
+              "ViewState": "AgIAALUBAAAAAAAAAAAiwMQBAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-05-14T13:57:11.997Z",
               "EditorCaption": ""
@@ -82,14 +81,14 @@
               "RelativeDocumentMoniker": "GasWebProject\\Services\\GasCalculatorService.cs",
               "ToolTip": "D:\\RadarItProjects\\GasWebProject\\GasWebProject\\Services\\GasCalculatorService.cs",
               "RelativeToolTip": "GasWebProject\\Services\\GasCalculatorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAAEoAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-14T14:16:05.708Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GasCalculatorController.cs",
               "DocumentMoniker": "D:\\RadarItProjects\\GasWebProject\\GasWebProject\\Controllers\\GasCalculatorController.cs",
               "RelativeDocumentMoniker": "GasWebProject\\Controllers\\GasCalculatorController.cs",
@@ -97,12 +96,11 @@
               "RelativeToolTip": "GasWebProject\\Controllers\\GasCalculatorController.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAQwCsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-14T14:20:17.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-14T14:20:17.417Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\RadarItProjects\\GasWebProject\\GasWebProject\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "GasWebProject\\Properties\\launchSettings.json",
@@ -110,7 +108,8 @@
               "RelativeToolTip": "GasWebProject\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-05-14T14:11:02.578Z"
+              "WhenOpened": "2026-05-14T14:11:02.578Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

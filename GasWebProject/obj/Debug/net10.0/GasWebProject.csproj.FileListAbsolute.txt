@@ -161,4 +161,5 @@ D:\RadarItProjects\GasWebProject\GasWebProject\bin\Debug\net10.0\GasWebProject.s
 D:\RadarItProjects\GasWebProject\GasWebProject\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\RadarItProjects\GasWebProject\GasWebProject\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\RadarItProjects\GasWebProject\GasWebProject\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\RadarItProjects\GasWebProject\GasWebProject\obj\Debug\net10.0\compressed\zbe8t4pc1o-{0}-8vix4i75ra-8vix4i75ra.gz
+D:\RadarItProjects\GasWebProject\GasWebProject\obj\Debug\net10.0\GasWebProject.sourcelink.json
+D:\RadarItProjects\GasWebProject\GasWebProject\obj\Debug\net10.0\compressed\zbe8t4pc1o-{0}-5a6h6ya921-5a6h6ya921.gz

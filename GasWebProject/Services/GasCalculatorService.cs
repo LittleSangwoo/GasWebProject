@@ -72,7 +72,7 @@ namespace GasWebProject.Services
             if (request.TargetUnit != UnitType.MassConcentration)
                 ApplyAntiDrift(resultFractions, remainderName);
             else
-                foreach (var mc in resultFractions) mc.Value = Math.Round(mc.Value, 0);
+                foreach (var mc in resultFractions) mc.Value = Math.Round(mc.Value, 6);
 
             return resultFractions;
         }

@@ -447,9 +447,25 @@
 
                     if (rawValue === undefined) throw new Error("Бэкенд вернул пустое значение!");
 
-                    const val = rawValue === Math.round(rawValue) ? rawValue : rawValue.toFixed(6).replace('.', ',');
+                    let displayValue = "";
+                    let exactValueTooltip = "";
 
-                    tr.innerHTML = `<td>${displayName}</td><td style="font-family: monospace; font-size: 1.1em;">${val}</td>`;
+                    // ЛОГИКА ОТОБРАЖЕНИЯ 
+                    if (targetUnit === 3) {
+                        // Если это массовая концентрация - визуально округляем до целого
+                        displayValue = Math.round(rawValue).toString();
+                        // Но точное значение прячем в подсказку
+                        exactValueTooltip = ` Точное значение: ${rawValue.toFixed(6)} `;
+                    } else {
+                        // Для остальных долей выводим 6 знаков с запятой
+                        displayValue = rawValue === Math.round(rawValue) ? rawValue : rawValue.toFixed(6).replace('.', ',');
+                    }
+
+                    // Добавляем атрибут title, чтобы при наведении мышки видеть точную цифру
+                    tr.innerHTML = `
+                    <td>${displayName}</td>
+                    <td style="font-family: monospace; font-size: 1.1em;" title="${exactValueTooltip}">${displayValue}</td>
+                `;
                     tbody.appendChild(tr);
                 });
 
